@@ -44,9 +44,14 @@ int main()
 	static unsigned char *bitmap;
 	unsigned int bitmapSize = 0;
 
-	if ((fp = fopen("want.bmp", "r+b")) == NULL) /////////////////////////////////////////////////////////////////////////////////////
+	char imageName[255] = {0};
+	printf("Podaj nazwe pliku do wczytania (*.bmp): ");
+	scanf("%s", &imageName);
+	
+	if ((fp = fopen((const char*)imageName, "r+b")) == NULL) /////////////////////////////////////////////////////////////////////////////////////
 	{
 		printf("Nie mozna otworzyc pliku\n");
+		getchar();
 		getchar();
 		return 1;
 	}
